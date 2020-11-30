@@ -46,7 +46,7 @@ async def handler(event):
     video_d = "https://llvod.mxplay.com/"
     A =requests.get("https://api.mxplay.com/v1/web/detail/video?type=movie&id="+link+"&platform=com.mxplay.desktop&device-density=2&userid=30bb09af-733a-413b-b8b7-b10348ec2b3d&platform=com.mxplay.mobile&content-languages=hi,en,ta").json()
     chat = await event.get_chat()
-    markup = client.build_reply_markup(Button.url("Transloaded Link",video_d+A["Transloaded Link"]['hls']['high']))
+    markup = client.build_reply_markup(Button.url("Transloaded Link",video_d+A["stream"]['hls']['high']))
     await client.send_message(chat,"Title: "+A["title"],buttons=markup)
     print(A)
     print(link)
