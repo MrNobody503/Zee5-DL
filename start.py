@@ -4,12 +4,6 @@ import sqlite3
 from headers import headers
 import urls
 import os
-from pyrogram import (
-    Client,
-    Filters,
-    InlineKeyboardMarkup,
-    InlineKeyboardButton
-)
 #from flask import request
 
 client = TelegramClient('anfghohn', int(os.environ.get("APP_ID" )), os.environ.get("API_HASH")).start(bot_token= os.environ.get("TG_BOT_TOKEN"))
