@@ -35,12 +35,8 @@ async def handler(event):
     g1 = (r1["hls"][0].replace("drm", "hls") + req1["video_token"])
    # await client.send_file(chat,r1["image_url"],caption = r1["title"])
     #markup = client.build_reply_markup(Button.url("Transloaded Link",urls.stream_baseurl+g1))
-    now = datetime.datetime.now()
-    chat_id = -1001283278354
-    uname = f"[{client.message.from_user.first_name}](tg://openmessage?user_id={client.message.from_user.id})"
     await client.send_message(chat, "Zee5 Link Transloaded! \n\n"+"**Video Title:** "+r1["title"]+" \n**Video Description:** "+r1["description"],file=r1["image_url"])
     await client.send_message(chat, urls.stream_baseurl+g1)
-    await client.send_message(chat_id, "#TRANSLOAD: \n\n@MX_Zee5_TransloadBot Transloaded "+{link}" to "+{urls.stream_baseurl+g1}" for "{uname}" at "{now}")
 
     
 @client.on(events.NewMessage(pattern='(?i)https://www.mxplayer.in'))
@@ -51,12 +47,8 @@ async def handler(event):
     #A =requests.get("https://api.mxplay.com/v1/web/detail/video?type=movie&id="+link+"&platform=com.mxplay.desktop&device-density=2&userid=30bb09af-733a-413b-b8b7-b10348ec2b3d&platform=com.mxplay.mobile&content-languages=hi,en,ta").json()
     chat = await event.get_chat()
     #markup = client.build_reply_markup(Button.url("Transloaded Link",video_d+A["stream"]['hls']['high']))
-    now = datetime.datetime.now()
-    chat_id = environ.get('LOG_CHANNEL', -1001283278354)
-    uname = f"[{client.message.from_user.first_name}](tg://openmessage?user_id={client.message.from_user.id})"
     await client.send_message(chat,"Title: "+A["title"])
     await client.send_message(chat, video_d+A["stream"]['hls']['high'])
-    await client.send_message(chat_id, f"""#TRANSLOAD: \n\n@MX_Zee5_TransloadBot Transloaded {link} to {urls.stream_baseurl+g1} for {uname} at {now}""")
     print(A)
     print(link)
 
