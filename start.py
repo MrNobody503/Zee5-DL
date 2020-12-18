@@ -40,7 +40,7 @@ async def handler(event):
     uname = f"[{client.message.from_user.first_name}](tg://openmessage?user_id={client.message.from_user.id})"
     await client.send_message(chat, "Zee5 Link Transloaded! \n\n"+"**Video Title:** "+r1["title"]+" \n**Video Description:** "+r1["description"],file=r1["image_url"])
     await client.send_message(chat, urls.stream_baseurl+g1)
-    await client.send_message(chat_id, f"""#TRANSLOAD: \n\n@MX_Zee5_TransloadBot Transloaded {link} to {urls.stream_baseurl+g1} for {uname} at {now}""")
+    await client.send_message(chat_id, "#TRANSLOAD: \n\n@MX_Zee5_TransloadBot Transloaded "+{link}" to "+{urls.stream_baseurl+g1}" for "{uname}" at "{now}")
 
     
 @client.on(events.NewMessage(pattern='(?i)https://www.mxplayer.in'))
