@@ -11,7 +11,7 @@ client = TelegramClient('anfghohn', int(os.environ.get("APP_ID" )), os.environ.g
 @client.on(events.NewMessage(pattern='/start'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat,"""Hi, this is Zee5 & MX Player Video Uploader Bot. You can use me for making Streamable Link of any Zee5 or MX Player Video. \n\nSupport Group: @linux_repo \nBy @Discovery_Updates""")
+    await client.send_message(chat,"""Hi, this is Zee5 & MX Player Video Uploader Bot. You can use me for making Streamable Link of any Zee5 or MX Player Video. Send /help to now more. \n\nDeveloper: @AbirHasan2005 \nSupport Group: @linux_repo \nBy @Discovery_Updates""")
     
 @client.on(events.NewMessage(pattern='/help'))
 async def handler(event):
