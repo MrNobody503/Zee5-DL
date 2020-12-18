@@ -16,7 +16,7 @@ async def handler(event):
 @client.on(events.NewMessage(pattern='/help'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat, "Hi, this is **Zee5** & **MX Player** Video Transloader Bot. You can use me for making Streamable Link of any Zee5 or MX Player Video. Just copy Video Link from Zee5 or MX Player and send it to me I will Transload it and send it to you. \n\n⭕️ **MX Player Example:** https://www.mxplayer.in/movie/039664d4d85c603cfb5a6cd66b9e29ec \n⭕️ **Zee5 Example:** https://www.zee5.com/movies/details/courier-boy-kalyan-2015-hindi-drama/0-0-courierboykalyan \n\nFormat should be like this, else bot will not work. And no DRM Protected or Premuim Videos Please. \n\nFor more help ask in @linux_repo", disable_web_page_preview=True)
+    await client.send_message(chat, """Hi, this is **Zee5** & **MX Player** Video Transloader Bot. You can use me for making Streamable Link of any Zee5 or MX Player Video. Just copy Video Link from Zee5 or MX Player and send it to me I will Transload it and send it to you. \n\n⭕️ **MX Player Example:** https://www.mxplayer.in/movie/039664d4d85c603cfb5a6cd66b9e29ec \n⭕️ **Zee5 Example:** https://www.zee5.com/movies/details/courier-boy-kalyan-2015-hindi-drama/0-0-courierboykalyan \n\nFormat should be like this, else bot will not work. And no DRM Protected or Premuim Videos Please. \n\nFor more help ask in @linux_repo""")
 
 @client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 
@@ -38,9 +38,9 @@ async def handler(event):
     now = datetime.datetime.now()
     chat_id = -1001283278354
     uname = f"[{client.message.from_user.first_name}](tg://openmessage?user_id={client.message.from_user.id})"
-    await client.send_message(chat_id, f"**#TRANSLOAD: \n\n@MX_Zee5_TransloadBot Transloaded** {link} **to** {urls.stream_baseurl+g1} **for** {uname} **at** {now}", parse_mode="markdown", disable_web_page_preview=True)
     await client.send_message(chat, "Zee5 Link Transloaded! \n\n"+"**Video Title:** "+r1["title"]+" \n**Video Description:** "+r1["description"],file=r1["image_url"])
     await client.send_message(chat, urls.stream_baseurl+g1)
+    await client.send_message(chat_id, f"""#TRANSLOAD: \n\n@MX_Zee5_TransloadBot Transloaded {link} to {urls.stream_baseurl+g1} for {uname} at {now}""")
 
     
 @client.on(events.NewMessage(pattern='(?i)https://www.mxplayer.in'))
@@ -54,9 +54,9 @@ async def handler(event):
     now = datetime.datetime.now()
     chat_id = environ.get('LOG_CHANNEL', -1001283278354)
     uname = f"[{client.message.from_user.first_name}](tg://openmessage?user_id={client.message.from_user.id})"
-    await client.send_message(chat_id, f"**#TRANSLOAD: \n\n@MX_Zee5_TransloadBot Transloaded** {link} **to** {urls.stream_baseurl+g1} **for** {uname} **at** {now}", parse_mode="markdown", disable_web_page_preview=True)
     await client.send_message(chat,"Title: "+A["title"])
     await client.send_message(chat, video_d+A["stream"]['hls']['high'])
+    await client.send_message(chat_id, f"""#TRANSLOAD: \n\n@MX_Zee5_TransloadBot Transloaded {link} to {urls.stream_baseurl+g1} for {uname} at {now}""")
     print(A)
     print(link)
 
