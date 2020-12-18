@@ -35,7 +35,7 @@ async def handler(event):
    # await client.send_file(chat,r1["image_url"],caption = r1["title"])
     #markup = client.build_reply_markup(Button.url("Transloaded Link",urls.stream_baseurl+g1))
     await client.send_message(chat, "Zee5 Link Transloaded! \n\n"+"**Video Title:** "+r1["title"]+" \n**Video Description:** "+r1["description"],file=r1["image_url"])
-    await client.send_message(urls.stream_baseurl+g1)
+    await client.send_message(chat, urls.stream_baseurl+g1)
             
             #rgx = w
    # await client.send_message(chat, g1)
@@ -50,7 +50,7 @@ async def handler(event):
     chat = await event.get_chat()
     #markup = client.build_reply_markup(Button.url("Transloaded Link",video_d+A["stream"]['hls']['high']))
     await client.send_message(chat,"Title: "+A["title"])
-    await client.send_message(video_d+A["stream"]['hls']['high'])
+    await client.send_message(chat, video_d+A["stream"]['hls']['high'])
     print(A)
     print(link)
 
