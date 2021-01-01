@@ -35,7 +35,7 @@ async def handler(event):
     g1 = (r1["hls"][0].replace("drm", "hls") + req1["video_token"])
    # await client.send_file(chat,r1["image_url"],caption = r1["title"])
     #markup = client.build_reply_markup(Button.url("Transloaded Link",urls.stream_baseurl+g1))
-    await client.send_message(chat, "Zee5 Link Transloaded! \n\n"+"**Video Title:** "+r1["title"]+" \n**Video Description:** "+r1["description"],file=r1["image_url"])
+    await client.send_message(chat, "Zee5 Link Transloaded! \n\n"+"**Video Title:** "+r1["title"]+" \n**Video Description:** "+r1["description"]+"\n\n"+urls.stream_baseurl+g1,file=r1["image_url"])
     await client.send_message(chat, urls.stream_baseurl+g1)
 
     
@@ -47,7 +47,7 @@ async def handler(event):
     #A =requests.get("https://api.mxplay.com/v1/web/detail/video?type=movie&id="+link+"&platform=com.mxplay.desktop&device-density=2&userid=30bb09af-733a-413b-b8b7-b10348ec2b3d&platform=com.mxplay.mobile&content-languages=hi,en,ta").json()
     chat = await event.get_chat()
     #markup = client.build_reply_markup(Button.url("Transloaded Link",video_d+A["stream"]['hls']['high']))
-    await client.send_message(chat,"Title: "+A["title"])
+    await client.send_message(chat,"Title: "+A["title"]+link)
     await client.send_message(chat, video_d+A["stream"]['hls']['high'])
     print(A)
     print(link)
