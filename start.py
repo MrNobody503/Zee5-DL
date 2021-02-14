@@ -10,12 +10,12 @@ client = TelegramClient('anfghohn', int(os.environ.get("APP_ID" )), os.environ.g
 @client.on(events.NewMessage(pattern='/start'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat,"""Hi, this is Zee5 & MX Player Video Uploader Bot. You can use me for making Streamable Link of any Zee5 or MX Player Video. \n\nSupport Group: @linux_repo \nBy @Discovery_Updates""")
+    await client.send_message(chat,"""Hi, this is Zee5 & MX Player Video Uploader Bot. You can use me for making Streamable Link of any Zee5 or MX Player Video. \n\nSupport Group: @venilabots1 \nBy @Venilabots""")
     
 @client.on(events.NewMessage(pattern='/help'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat,"""Hi, this is **Zee5** & **MX Player** Video Transloader Bot. You can use me for making Streamable Link of any Zee5 or MX Player Video. Just copy Video Link from Zee5 or MX Player and send it to me I will Transload it and send it to you. \n\n⭕️ **MX Player Example:** https://www.mxplayer.in/movie/039664d4d85c603cfb5a6cd66b9e29ec \n⭕️ **Zee5 Example:** https://www.zee5.com/movies/details/courier-boy-kalyan-2015-hindi-drama/0-0-courierboykalyan \n\nFormat should be like this, else bot will not work. And no DRM Protected or Premuim Videos Please. \n\nFor more help ask in @linux_repo""")
+    await client.send_message(chat,"""Hi, this is **Zee5** & **MX Player** Video Downloader and uploader Bot. You can use me for making Streamable Link of any Zee5 or MX Player Video. Just copy Video Link from Zee5 or MX Player and send it to me I will Transload it and send it to you. \n\n⭕️ **MX Player Example:** https://www.mxplayer.in/movie/039664d4d85c603cfb5a6cd66b9e29ec \n⭕️ **Zee5 Example:** https://www.zee5.com/movies/details/courier-boy-kalyan-2015-hindi-drama/0-0-courierboykalyan \n\nFormat should be like this, else bot will not work. And no DRM Protected or Premuim Videos Please. \n\nFor more help ask in @venilabots1""")
 
 @client.on(events.NewMessage(pattern='(?i)https://www.zee5.com'))
 
